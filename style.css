@@ -21,31 +21,77 @@
     will-change: background-image;
 }
 
-/* キャラクター画像のスタイル */
-#character {
+/* キャラクターコンテナ */
+#character-container {
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 540px;
-    height: 810px;
-    max-width: 80vw;
-    max-height: 80vh;
+    display: flex;
+    gap: 2vw; /* 間隔を画面幅依存に（狭め） */
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 98vw;           /* 横幅をほぼ全幅に */
+    max-width: 1300px;
+    z-index: 2;
+    pointer-events: none;  /* キャラの上でもクリック透過 */
+}
+
+/* キャラクター画像（左右配置＆自動リサイズ対応・大きめ） */
+.character {
+    position: relative;
+    width: 40vw;
+    height: 70vh;
+    max-width: 600px;
+    max-height: 95vh;
+    min-width: 120px;
+    min-height: 180px;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: bottom center;
-    z-index: 2;
+    display: none; /* 初期は非表示 */
+    z-index: 3;
+    transition: width 0.2s, height 0.2s;
 }
 
-/* スマホ対応 */
-/*@media screen and (max-width: 768px) {
-    #character {
-        width: 300px;
-        height: auto;
-        max-width: 80vw;
-        max-height: 60vh;
+.character.left {
+    order: 1;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.character.right {
+    order: 2;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* スマホ対応：縦画面・横画面で最適化＋大きさUP */
+@media screen and (max-width: 768px) {
+    #character-container {
+        width: 99vw;
+        gap: 1vw;
+        max-width: 100vw;
     }
-} */
+    .character {
+        width: 60vw;
+        height: 80vw;
+        max-width: 98vw;
+        max-height: 70vh;
+        min-width: 80px;
+        min-height: 110px;
+    }
+}
+
+/* 横画面スマホ調整：キャラが重なりにくいよう補正 */
+@media screen and (max-aspect-ratio: 13/9) and (max-width: 900px) {
+    .character {
+        width: 54vw;
+        height: 75vh;
+        max-width: 60vw;
+        max-height: 90vh;
+    }
+}
 
 /* テキストボックスのスタイル */
 #text-box {
@@ -59,7 +105,7 @@
     color: #fff;
     border-radius: 20px;
     font-family: sans-serif;
-    z-index: 3;
+    z-index: 4;
     border: 2px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(5px);
@@ -88,13 +134,13 @@
     display: none;
     flex-direction: column;
     gap: 10px;
-    z-index: 4;
+    z-index: 5;
 }
 
 /* 選択肢ボタンのスタイル */
 .choice-button {
     padding: 15px;
-    background-color: rgba(255, 150, 150, 0.6); /* 薄い赤、強めの透過 */
+    background-color: rgba(255, 150, 150, 0.6);
     color: #fff;
     border: 1px solid rgba(255, 150, 150, 0.8);
     border-radius: 10px;
@@ -103,6 +149,7 @@
     font-family: sans-serif;
     backdrop-filter: blur(5px);
     transition: background-color 0.3s, border 0.3s;
+    font-size: 18px;
 }
 
 /* ホバー時のスタイル */
@@ -111,12 +158,7 @@
     border-color: rgba(255, 150, 150, 1);
 }
 
-/* ボタンの文字が読みやすいように少し大きめに */
-.choice-button {
-    font-size: 18px;
-}
-
-/* スマホ対応 */
+/* スマホ用選択肢ボタンサイズ調整 */
 @media screen and (max-width: 768px) {
     .choice-button {
         font-size: 16px;
@@ -146,32 +188,10 @@
     height: 50px;
     cursor: pointer;
     font-size: 24px;
-    z-index: 5;
-    transition: background-color 0.3s;
-}
-
-#bgm-button:hover {
-    background-color: rgba(255, 150, 150, 1);
-}
-
-/* BGMボタンのスタイル */
-#bgm-button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: rgba(255, 150, 150, 0.8);
-    color: #fff;
-    border: none;
-    border-radius: 30px;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    font-size: 24px;
     z-index: 10;
     transition: background-color 0.3s;
 }
 
-/* BGMボタンホバー */
 #bgm-button:hover {
     background-color: rgba(255, 150, 150, 1);
 }
@@ -179,7 +199,7 @@
 /* 音量スライダーのスタイル */
 #volume-slider {
     position: absolute;
-    top: 90px;  /* ボタンの下に配置 */
+    top: 90px;
     right: 30px;
     width: 150px;
     z-index: 10;
@@ -193,7 +213,6 @@
     transition: background-color 0.3s;
 }
 
-/* スライダーのつまみ */
 #volume-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 20px;
@@ -204,7 +223,6 @@
     transition: background-color 0.3s;
 }
 
-/* つまみホバー */
 #volume-slider::-webkit-slider-thumb:hover {
     background-color: rgba(255, 150, 150, 1);
 }

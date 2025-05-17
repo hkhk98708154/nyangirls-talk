@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>にゃんまちゃんのにゃんまるコイン講座</title>
+    <title>にゃんまるコインガールズトーク</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- タイトル画面 -->
     <div id="title-screen">
         <div id="title-background"></div>
-        <img src="assets/title.webp" alt="にゃんまちゃんのにゃんまるコイン講座" id="title-image">
+        <img src="assets/title.webp" alt="にゃんまるコインガールズトーク" id="title-image">
         <button id="start-button" onclick="startGame()">スタート</button>
-        <p id="title-note">※スタートを押すと音が出ます。ご注意ください。　BGM：ヒダマリトロニカ</p>
+        <p id="title-note">※スタートを押すと音が出ます。ご注意ください。　BGM：Harvest3</p>
     </div>
 
     <!-- ゲーム画面 -->
     <div id="game-container" style="display: none;">
         <div id="background"></div>
-        <div id="character"></div>
+    <!-- キャラクター表示エリア -->
+        <div id="character-container"></div>
         <div id="text-box">
             <div id="character-name"></div>
             <div id="dialogue"></div>
@@ -31,9 +32,10 @@
         <input type="range" id="volume-slider" min="0" max="100" value="50" onchange="adjustVolume(this.value)">
     </div>
 
+
     <!-- 終了画面 -->
     <div id="end-screen" style="display: none;">
-        <h2>にゃんまちゃんのにゃんまるコイン講座</h2>
+        <h2>にゃんまるコインガールズトーク</h2>
         <button onclick="restartGame()">タイトルに戻る</button>
         <button onclick="window.open('https://x.com/nyanmarucoin', '_blank')">にゃんまるコイン公式Xはこちら</button>
         <button onclick="window.open('https://x.com/tamago_pj', '_blank')">Tamagoプロジェクト公式Xはこちら</button>
