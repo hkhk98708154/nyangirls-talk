@@ -66,85 +66,7 @@
     margin-right: 0;
 }
 
-/* スマホ対応：縦画面・横画面で最適化＋大きさUP */
-@media screen and (max-width: 768px) {
-    #game-container {
-        display: flex;
-        flex-direction: column;
-        height: 100vh;
-        width: 100vw;
-    }
-    #background {
-        position: absolute;
-        top: 0; left: 0; width: 100vw; height: 100vh;
-        z-index: 1;
-    }
-    #character-container {
-        position: relative;
-        flex: 2 1 0%;
-        display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
-        width: 100vw;
-        height: 0;        /* 高さはflexで決まるので0にしてOK */
-        min-height: 0;
-        z-index: 2;
-        gap: 2vw;
-        pointer-events: none;
-        margin-bottom: 0;
-    }
-    .character {
-        width: 44vw;      /* 幅を左右で最大限使う */
-        height: 56vw;     /* 16:9比率ならこのぐらい */
-        max-width: 50vw;
-        max-height: 56vw;
-        min-width: 90px;
-        min-height: 110px;
-        background-size: contain;
-        background-position: bottom center;
-        display: none;
-        z-index: 3;
-        transition: width 0.2s, height 0.2s;
-    }
-    #text-box {
-        position: relative;
-        flex: 1 1 0%;
-        width: 96vw;
-        min-height: 68px;
-        max-height: 160px;
-        left: 50%;
-        transform: translateX(-50%);
-        margin-bottom: 0;
-        margin-top: 0;
-        background: rgba(0,0,0,0.82);
-        color: #fff;
-        font-size: 16px;
-        border-radius: 16px;
-        padding: 12px 10px;
-        z-index: 10;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    #choice-container {
-        position: relative;
-        z-index: 12;
-        width: 94vw;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-}
 
-/* 横画面スマホ調整：キャラが重なりにくいよう補正 */
-@media screen and (max-aspect-ratio: 13/9) and (max-width: 900px) {
-    .character {
-        width: 54vw;
-        height: 75vh;
-        max-width: 60vw;
-        max-height: 90vh;
-    }
-}
 
 /* テキストボックスのスタイル */
 #text-box {
@@ -162,7 +84,7 @@
     border: 2px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(5px);
-}
+} 
 
 /* キャラクター名のスタイル */
 #character-name {
