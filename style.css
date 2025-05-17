@@ -93,12 +93,12 @@
         margin-bottom: 0;
     }
     .character {
+        min-width: 60px !important;
+        min-height: 80px !important;
         width: 44vw;
         height: 56vw;
         max-width: 50vw;
         max-height: 56vw;
-        min-width: 90px;
-        min-height: 110px;
         background-size: contain;
         background-position: bottom center;
         z-index: 3;
