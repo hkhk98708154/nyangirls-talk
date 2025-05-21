@@ -430,3 +430,20 @@
         padding: 0 10vw;
     }
 }
+
+/* スマホ縦画面：キャラを最大まで大きく */
+@media screen and (max-width: 768px) and (orientation: portrait) {
+    .character {
+        width: 98vw !important;        /* ほぼ全幅 */
+        height: auto !important;
+        max-width: 98vw !important;
+        max-height: 80vh !important;   /* 画面の8割までOK */
+        min-width: 90vw !important;
+        min-height: 160px !important;
+        background-size: contain !important;
+    }
+    #character-container {
+        bottom: 10px !important;      /* 必要に応じて調整 */
+        width: 100vw !important;
+    }
+}
