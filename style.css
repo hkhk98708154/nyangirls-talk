@@ -69,7 +69,7 @@
 /* --- スマホ画面用に、キャラ位置を上に移動するスタイルを追加 --- */
 @media screen and (max-width: 768px) {
     #character-container {
-        bottom: 60px; /* ←ここを調整（例：60px上に） */
+        bottom: 70px; /* ←ここを調整（例：60px上に） */
         width: 99vw;
         gap: 1vw;
         max-width: 100vw;
@@ -89,16 +89,6 @@
         padding: 12px 8px;
         font-size: 16px;
         border-radius: 14px;
-    }
-}
-
-/* 横画面スマホ調整：キャラが重なりにくいよう補正 */
-@media screen and (max-aspect-ratio: 13/9) and (max-width: 900px) {
-    .character {
-        width: 54vw;
-        height: 75vh;
-        max-width: 60vw;
-        max-height: 90vh;
     }
 }
 
