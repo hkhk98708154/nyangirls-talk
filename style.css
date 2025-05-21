@@ -374,3 +374,59 @@
 #end-screen button:hover {
     background-color: #ffaa00;
 }
+
+/* ▼ タイトル画面 スマホ縦画面 */
+@media screen and (max-width: 768px) and (orientation: portrait) {
+    #title-screen {
+        padding-top: 30px;
+        padding-bottom: 10px;
+    }
+    #title-background {
+        width: 100vw;
+        height: 100vh;
+        background-size: cover;
+        background-position: center center;
+    }
+    #title-image {
+        width: 92vw;
+        max-width: 96vw;
+        margin-bottom: 18px;
+    }
+    #start-button {
+        font-size: 20px;
+        padding: 12px 24px;
+        margin-bottom: 16px;
+    }
+    #title-note {
+        font-size: 13px;
+        padding: 0 6vw;
+    }
+}
+
+/* ▼ タイトル画面 スマホ横画面 */
+@media screen and (max-width: 900px) and (orientation: landscape) {
+    #title-screen {
+        padding-top: 12px;
+        padding-bottom: 8px;
+    }
+    #title-background {
+        width: 100vw;
+        height: 100vh;
+        background-size: cover;
+        background-position: center center;
+    }
+    #title-image {
+        width: 58vw;
+        max-width: 85vw;
+        margin-bottom: 14px;
+    }
+    #start-button {
+        font-size: 18px;
+        padding: 10px 20px;
+        margin-bottom: 13px;
+    }
+    #title-note {
+        font-size: 12px;
+        padding: 0 10vw;
+    }
+}
