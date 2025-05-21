@@ -66,26 +66,20 @@
     margin-right: 0;
 }
 
-/* ▼ スマホ縦画面：通常のスマホ（縦長）用 */
-@media screen and (max-width: 768px) and (orientation: portrait) {
-    #background {
-        width: 100vw;
-        height: 100vh;
-        background-size: cover;  /* coverで全体フィット */
-        background-position: center center;
-    }
+/* --- スマホ画面用に、キャラ位置を上に移動するスタイルを追加 --- */
+@media screen and (max-width: 768px) {
     #character-container {
-        bottom: 70px;
+        bottom: 60px; /* ←ここを調整（例：60px上に） */
         width: 99vw;
-        gap: 2vw;
+        gap: 1vw;
         max-width: 100vw;
     }
     .character {
-        width: 90vw;
+        width: 75vw;
         height: auto;
-        max-height: 72vh;
+        max-height: calc(60vh - 80px);
         min-width: 100px;
-        min-height: 150px;
+        min-height: 120px;
     }
     #text-box {
         bottom: 0;
@@ -96,46 +90,15 @@
         font-size: 16px;
         border-radius: 14px;
     }
-    .choice-button {
-        font-size: 16px;
-        padding: 10px;
-    }
 }
 
-/* ▼ スマホ横画面：スマホで横長になった場合 */
-@media screen and (max-width: 900px) and (orientation: landscape) {
-    #background {
-        width: 100vw;
-        height: 100vh;
-        background-size: cover;
-        background-position: center center;
-    }
-    #character-container {
-        bottom: 32px;  /* 横画面では下部をやや詰める */
-        width: 98vw;
-        gap: 5vw;      /* キャラ間を広めに */
-        max-width: 100vw;
-    }
+/* 横画面スマホ調整：キャラが重なりにくいよう補正 */
+@media screen and (max-aspect-ratio: 13/9) and (max-width: 900px) {
     .character {
-        width: 62vw;
-        height: auto;
-        max-width: 70vw;
-        max-height: 70vh;
-        min-width: 100px;
-        min-height: 100px;
-    }
-    #text-box {
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 97vw;
-        padding: 10px 14px;
-        font-size: 15px;
-        border-radius: 10px;
-    }
-    .choice-button {
-        font-size: 15px;
-        padding: 9px;
+        width: 54vw;
+        height: 75vh;
+        max-width: 60vw;
+        max-height: 90vh;
     }
 }
 
@@ -373,77 +336,4 @@
 
 #end-screen button:hover {
     background-color: #ffaa00;
-}
-
-/* ▼ タイトル画面 スマホ縦画面 */
-@media screen and (max-width: 768px) and (orientation: portrait) {
-    #title-screen {
-        padding-top: 30px;
-        padding-bottom: 10px;
-    }
-    #title-background {
-        width: 100vw;
-        height: 100vh;
-        background-size: cover;
-        background-position: center center;
-    }
-    #title-image {
-        width: 92vw;
-        max-width: 96vw;
-        margin-bottom: 18px;
-    }
-    #start-button {
-        font-size: 20px;
-        padding: 12px 24px;
-        margin-bottom: 16px;
-    }
-    #title-note {
-        font-size: 13px;
-        padding: 0 6vw;
-    }
-}
-
-/* ▼ タイトル画面 スマホ横画面 */
-@media screen and (max-width: 900px) and (orientation: landscape) {
-    #title-screen {
-        padding-top: 12px;
-        padding-bottom: 8px;
-    }
-    #title-background {
-        width: 100vw;
-        height: 100vh;
-        background-size: cover;
-        background-position: center center;
-    }
-    #title-image {
-        width: 58vw;
-        max-width: 85vw;
-        margin-bottom: 14px;
-    }
-    #start-button {
-        font-size: 18px;
-        padding: 10px 20px;
-        margin-bottom: 13px;
-    }
-    #title-note {
-        font-size: 12px;
-        padding: 0 10vw;
-    }
-}
-
-/* スマホ縦画面：キャラを最大まで大きく */
-@media screen and (max-width: 768px) and (orientation: portrait) {
-    .character {
-        width: 98vw !important;        /* ほぼ全幅 */
-        height: auto !important;
-        max-width: 98vw !important;
-        max-height: 80vh !important;   /* 画面の8割までOK */
-        min-width: 90vw !important;
-        min-height: 160px !important;
-        background-size: contain !important;
-    }
-    #character-container {
-        bottom: 10px !important;      /* 必要に応じて調整 */
-        width: 100vw !important;
-    }
 }
