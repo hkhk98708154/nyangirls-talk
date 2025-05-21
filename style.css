@@ -92,6 +92,16 @@
     }
 }
 
+/* 横画面スマホ調整：キャラが重なりにくいよう補正 */
+@media screen and (max-aspect-ratio: 13/9) and (max-width: 900px) {
+    .character {
+        width: 54vw;
+        height: 75vh;
+        max-width: 60vw;
+        max-height: 90vh;
+    }
+}
+
 /* テキストボックスのスタイル */
 #text-box {
     position: absolute;
