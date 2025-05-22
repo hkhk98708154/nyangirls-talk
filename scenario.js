@@ -44,7 +44,7 @@ const scenarioData = [
     "set char nyanma nyanma-nihe_closed.webp",
     "にゃんまちゃん「クラス分けがあって、Sクラスになると最大22%の報酬、しかもNSGも選べるんやで♪」",
 
-    "set char nyanluna nyanluna-kira_closed.webp",
+    "set char nyanluna nyanluna-niko_closed.webp",
     "にゃんるなちゃん「DAOに参加すると、投票でエコシステムの方針も決められる…。眠くても、未来のことはちゃんと考えたいね。」",
 
     "set char nyanmi nyanmi-waku_closed.webp",
