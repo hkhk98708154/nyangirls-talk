@@ -63,7 +63,7 @@ const scenarioData = [
     "set char nyanluna nyanluna-kira_closed.webp",
     "にゃんるなちゃん「もちにゃふぇのぬいぐるみ、ZMATでリアルRWAにしたいな…。」",
 
-    "set char nyanno nyanno-waku_closed.webp",
+    "set char nyanno nyanno-kira_closed.webp",
     "にゃん乃ちゃん「グッズもアートも、全部トークンでつながるってすごすぎっ！」",
 
     // 締めくくり
